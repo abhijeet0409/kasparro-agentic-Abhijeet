@@ -66,6 +66,69 @@ Each agent stores execution metadata in state.memory:
 - **Frontend**: Next.js 16 + React 19
 - **Type Safety**: TypeScript + Zod schemas
 
+## 🧱 Mandatory Framework Usage (COMPLIANT ✅)
+
+### Orchestration Framework
+- **LangGraph (LangChain)**
+  - Graph-based execution (DAG)
+  - Explicit state object
+  - Conditional edges
+  - Parallel agent execution
+  - Built-in retries & error handling
+
+### LLM Backbone
+- **GPT-4 / GPT-4-Turbo** (via LangChain `ChatOpenAI`)
+- Temperature-controlled for deterministic outputs
+
+---
+
+## 🧠 Agent Architecture (Framework-Native)
+
+Each agent is a **LangGraph node** with:
+- defined role
+- input/output schema
+- shared & isolated state
+- deterministic pre/post-processing
+
+### Core Agents
+1. **Product Parser Agent**
+   - Validates and normalizes raw input data
+   - Populates shared graph state
+
+2. **Question Generation Agent**
+   - Generates 15+ categorized questions
+   - Uses structured output schema
+
+3. **Content Logic Agents**
+   - Benefits Agent  
+   - Usage Agent  
+   - Ingredients Agent  
+   - Safety Agent  
+   - Pricing Agent  
+
+4. **Template Assembly Agent**
+   - Applies custom JSON templates
+   - Resolves block dependencies
+
+5. **Comparison Agent**
+   - Creates fictional Product-B
+   - Executes ingredient/benefit/price comparison
+
+6. **Validation & Recovery Agent**
+   - Schema validation (Pydantic)
+   - Retry on malformed outputs
+   - Fallback logic on LLM failure
+
+---
+
+## 🔁 Orchestration Flow (LangGraph)
+
+- Explicit **StateGraph**
+- Conditional routing based on validation status
+- Parallel execution for independent logic blocks
+- Retry policies on agent failure
+- Centralized error propagation
+
 ### Key Features
 - ✅ Framework-based graph execution (LangGraph)
 - ✅ Proper state management with shared memory
@@ -96,3 +159,13 @@ Adding new agents:
 - `faq.json` - 5+ categorized Q&As with answers
 - `product_page.json` - Complete landing page structure
 - `comparison_page.json` - Product A vs B analysis
+
+## License
+
+© 2025 Abhijeet. All rights reserved.
+
+This project and its contents are the intellectual property of Abhijeet.  
+Unauthorized copying, modification, distribution, or use of this software, in whole or in part, without explicit permission from the author is strictly prohibited.
+
+For permission or licensing inquiries, please contact the author directly.
+
